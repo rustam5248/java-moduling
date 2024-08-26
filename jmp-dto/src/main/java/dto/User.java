@@ -16,6 +16,9 @@ public class User {
         this.surname = surname;
     }
 
+    public User(String reno) {
+    }
+
     public String getName() {
         return name;
     }

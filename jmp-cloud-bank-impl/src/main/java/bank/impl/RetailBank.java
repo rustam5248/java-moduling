@@ -8,7 +8,8 @@ import java.util.UUID;
 public class RetailBank implements Bank {
     @Override
     public BankCard createBankCard(User user, BankCardType type) {
-        switch (type){
+
+       switch (type){
             case DEBIT -> {
                 return new DebitBankCard(UUID.randomUUID().toString(),user);
             }
@@ -19,4 +20,6 @@ public class RetailBank implements Bank {
         }
 
     }
+
+
 }

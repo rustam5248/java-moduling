@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 
 public class ServiceImpl implements ServiceAPI {
@@ -37,7 +38,8 @@ public class ServiceImpl implements ServiceAPI {
     public List<User> getAllUsers() {
         return bankCardsList.stream()
                 .map(BankCard::getUser)
-                .toList();
+                .collect(Collectors.toUnmodifiableList());
+
     }
 
     @Override

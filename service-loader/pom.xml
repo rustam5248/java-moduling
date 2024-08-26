@@ -7,10 +7,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jmp-application</artifactId>
+    <artifactId>service-loader</artifactId>
     <packaging>jar</packaging>
 
-    <name>jmp-application</name>
+    <name>service-loader</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -26,13 +26,7 @@
         </dependency>
         <dependency>
             <groupId>uz.learning</groupId>
-            <artifactId>jmp-cloud-service-impl</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>uz.learning</groupId>
-            <artifactId>jmp-cloud-bank-impl</artifactId>
+            <artifactId>jmp-service-api</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

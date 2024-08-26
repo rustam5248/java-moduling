@@ -1,22 +1,29 @@
 package jmp.application;
 
-import dto.Subscription;
+import bank.impl.RetailBank;
+import dto.BankCardType;
+import dto.User;
 import service.impl.ServiceImpl;
+import java.time.LocalDate;
 
-import java.util.Optional;
-import java.util.function.Predicate;
-
-/**
- * Hello world!
- *
- */
+//Demonstration of created Classes
 public class App 
 {
-    public static void main( String[] args ) throws SubscriptionNotFoundExeption {
-        ServiceImpl srvImpl = new ServiceImpl();
-        String cardNumber = "123-555-555";
-        Optional<Subscription> subscription = srvImpl.getSubscriptionByBankCardNumber(cardNumber);
-        subscription.ifPresent(value -> System.out.println("Subscription found" + value.getBankcardNumber()));
-        Predicate<Subscription> isActiveCondition = Subscription::isActive;
+    public static void main( String[] args ) {
+
+
+        var bank =  new RetailBank();
+        var service = new ServiceImpl();
+        var user = new User("Reno", LocalDate.of(1990,12,19),"Raimond");
+
+        var bankCard = bank.createBankCard(user, BankCardType.DEBIT);
+        service.subscribe(bankCard);
+
+        var subscription = service.getSubscriptionByBankCardNumber(bankCard.getNumber());
+        subscription.ifPresent(s->System.out.println("Subscription: " + s));
+
+        var users = service.getAllUsers();
+        users.forEach(u->System.out.println("User: "+ u.getName()));
+
     }
 }
